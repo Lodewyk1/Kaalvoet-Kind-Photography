@@ -1,51 +1,51 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f9f9f9;
-  }
-  
-  header {
-    background: rgb(154, 203, 208);
-    color: #000000;
-    padding: 1rem 2rem;
-  }
-  
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .logo {
-    display: flex;
-    align-items: center;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: rgb(0, 0, 0); /* or whatever suits your background */
-    gap: 10px;
-  }
-  
-  .logo-img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid rgb(228, 239, 231);
-  }
-  
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+header {
+  background: rgb(154, 203, 208);
+  color: #000000;
+  padding: 1rem 2rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgb(0, 0, 0); /* or whatever suits your background */
+  gap: 10px;
+}
+
+.logo-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgb(228, 239, 231);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
 
 /* Styling for navigation links */
 .nav-links li a {
@@ -79,7 +79,7 @@
 .nav-links li a:hover::after {
   width: 100%;
 }
-  
+
 .hero {
   position: relative;
   height: 90vh;
@@ -125,11 +125,11 @@
 .hero .slide5 { background-image: url('Photos/hero5.jpg'); animation-delay: 20s; }
 
 @keyframes fade {
-  0%   { opacity: 0; }
-  4%   { opacity: 1; }
-  20%  { opacity: 1; }
-  24%  { opacity: 0; }
-  100% { opacity: 0; }
+0%   { opacity: 0; }
+4%   { opacity: 1; }
+20%  { opacity: 1; }
+24%  { opacity: 0; }
+100% { opacity: 0; }
 }
 
 .hero-content {
@@ -145,18 +145,20 @@
 .hero-content p {
   font-size: 1.5rem;
 }
-  footer {
-    background: rgb(154, 203, 208);
-    color: #000000;
-    text-align: center;
-    padding: 1rem 0;
-    margin-top: 2rem;
-  }
 
-  /* Styles for the gallery page */
+footer {
+  background: rgb(154, 203, 208);
+  color: #000000;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
+
+/* Styles for the gallery page */
 .gallery {
   padding: 2rem;
   text-align: center;
+  background-color: rgb(154, 203, 208); /* Background color */
 }
 
 .gallery h2 {
@@ -167,22 +169,62 @@
 
 .gallery-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(3, 1fr); /* 3x3 grid */
   gap: 1.5rem;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 5px solid black; /* Black border around each image */
 }
 
 .gallery-item img {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; /* Smooth transition */
 }
+
+.gallery-item:hover img {
+  transform: scale(1.1); /* Zoom effect */
+  filter: brightness(0.7); /* Darken effect */
+}
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .overlay {
+  opacity: 1; /* Show overlay on hover */
+}
+
+.gallery-item a {
+  text-decoration: none;
+}
+
+.gallery-item h3 {
+  margin: 0;
+  text-align: center;
+  font-size: 2rem;
+  color: white;
+  padding: 10px;
+}
+
 
 /* Styles for the About Us page */
 .about-us {
   padding: 2rem;
   text-align: center;
-  background-color: #f5f5f5;
+  background-color: rgb(228, 239, 231);
 }
 
 .about-us h2 {
@@ -218,13 +260,11 @@
   text-align: left;
 }
 
-
-
 /* Styles for the Contact Us page */
 .contact-us {
   padding: 2rem;
   text-align: center;
-  background-color: #f5f5f5;
+  background-color: rgb(253, 250, 245);
 }
 
 .contact-us h2 {
@@ -280,7 +320,6 @@
   text-decoration: underline;
 }
 
-
 /* Mobile Burger Menu */
 .burger-menu {
   display: none;
@@ -299,25 +338,25 @@
 @media screen and (max-width: 768px) {
   /* Hide the nav links by default */
   .nav-links {
-    display: none;
-    flex-direction: column;
-    gap: 1.5rem;
-    align-items: center;
-    width: 100%;
-    position: absolute;
-    top: 80px;
-    left: 0;
-    background-color: rgb(253, 250, 245);
-    padding: 1rem 0;
+      display: none;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
+      width: 100%;
+      position: absolute;
+      top: 80px;
+      left: 0;
+      background-color: rgb(253, 250, 245);
+      padding: 1rem 0;
   }
 
   /* Show the burger menu */
   .burger-menu {
-    display: flex;
+      display: flex;
   }
 
   /* Show nav links when burger is clicked */
   .nav-links.active {
-    display: flex;
+      display: flex;
   }
 }
