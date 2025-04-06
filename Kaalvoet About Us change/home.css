@@ -1,0 +1,548 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+header {
+  background: rgb(154, 203, 208);
+  color: #000000;
+  padding: 1rem 2rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgb(0, 0, 0); /* or whatever suits your background */
+  gap: 10px;
+}
+
+.logo-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgb(228, 239, 231);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* Styling for navigation links */
+.nav-links li a {
+  position: relative;
+  text-decoration: none;
+  color: #000000;
+  padding: 5px 10px;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Hover effect with underline and background highlight */
+.nav-links li a:hover {
+  background-color: rgb(255, 182, 193); /* Light pastel color - adjusted comment */
+  color: #333; /* Dark text color on hover for contrast */
+}
+
+/* Underline effect: starting from left to right */
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #fff; /* Consider changing if hover background changes */
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+/* When hovered, make the underline expand to full width */
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+.hero {
+  position: relative;
+  height: 90vh;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Overlay for darkening */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1; /* Ensure overlay is above slides */
+}
+
+/* Hero content needs to be above overlay */
+.hero-content {
+  position: relative;
+  z-index: 2; /* Above the overlay */
+}
+
+
+/* Stack all images */
+.hero .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: fade 25s infinite;
+  transition: opacity 2s ease-in-out; /* Smooth transition for opacity */
+  z-index: 0; /* Below overlay and content */
+}
+
+.hero .slide1 { background-image: url('Photos/hero1.jpg'); animation-delay: 0s; }
+.hero .slide2 { background-image: url('Photos/hero2.jpg'); animation-delay: 5s; }
+.hero .slide3 { background-image: url('Photos/hero3.jpg'); animation-delay: 10s; }
+.hero .slide4 { background-image: url('Photos/hero4.jpg'); animation-delay: 15s; }
+.hero .slide5 { background-image: url('Photos/hero5.jpg'); animation-delay: 20s; }
+
+/* Keyframe Animation for Hero Slideshow */
+@keyframes fade {
+  0%   { opacity: 0; }
+  4%   { opacity: 1; } /* Fade in */
+  20%  { opacity: 1; } /* Hold */
+  24%  { opacity: 0; } /* Fade out */
+  100% { opacity: 0; } /* Stay hidden until next cycle */
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+}
+
+/* ===================== ABOUT SECTION STYLES (Updated) ===================== */
+.about-section {
+  padding: 3rem 2rem;
+  background-color: rgb(228, 239, 231);
+}
+
+.about-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Left Column Styling */
+.about-left {
+  flex: 0 0 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.photographer-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.photographer-quote {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.5;
+  max-width: 220px;
+}
+
+/* Right Column Styling */
+.about-right {
+  flex: 1;
+  text-align: left;
+}
+
+.about-right h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.about-right p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+  color: #555;
+}
+/* =================== END ABOUT SECTION STYLES =================== */
+
+
+/* ===================== GALLERY SECTION STYLES ===================== */
+.gallery {
+  padding: 2rem;
+  text-align: center;
+  background-color: rgb(154, 203, 208);
+}
+
+.gallery h2 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #333;
+}
+
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+  gap: 1.5rem;
+  max-width: 1200px; /* Optional: constrain gallery width */
+  margin: 0 auto; /* Center container */
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 5px solid black;
+  background-color: #333; /* Add background for better loading appearance */
+}
+
+.gallery-item img {
+  display: block; /* Remove bottom space */
+  width: 100%;
+  height: 250px; /* Give items a consistent height */
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+  filter: brightness(0.7);
+}
+
+.gallery-item .overlay { /* Make selector more specific */
+  position: absolute;
+  top: 0; /* Cover entire item */
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex; /* Use flex to center content */
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4); /* Slight overlay always visible or on hover */
+  color: white;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease;
+  pointer-events: none; /* Allow clicking the link */
+}
+
+.gallery-item:hover .overlay {
+  opacity: 1; /* Show overlay on hover */
+}
+
+.gallery-item a {
+  text-decoration: none;
+  display: block; /* Ensure link covers item */
+}
+
+.gallery-item h3 { /* Style the text within the overlay */
+  margin: 0;
+  text-align: center;
+  font-size: 1.8rem; /* Adjusted size */
+  color: white;
+  padding: 10px;
+  transform: translateY(20px); /* Start slightly lower */
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover h3 {
+    transform: translateY(0); /* Move text up on hover */
+}
+/* =================== END GALLERY SECTION STYLES =================== */
+
+
+/* ===================== CONTACT US SECTION STYLES ===================== */
+.contact-us {
+  padding: 3rem 2rem; /* Increased padding */
+  text-align: center;
+  background-color: rgb(253, 250, 245);
+}
+
+.contact-us h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1rem; /* Adjusted margin */
+}
+
+.contact-us > p { /* Style the introductory paragraph */
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem; /* More space before details */
+  color: #555;
+  max-width: 700px; /* Constrain width */
+  margin-left: auto; /* Center */
+  margin-right: auto; /* Center */
+}
+
+.contact-info {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  justify-content: center; /* Center items */
+  align-items: center; /* Vertically align items */
+  gap: 3rem; /* Space between photo and details */
+  max-width: 800px; /* Constrain width */
+  margin: 0 auto; /* Center container */
+}
+
+.contact-photo img {
+  border-radius: 50%;
+  width: 180px; /* Slightly smaller */
+  height: 180px;
+  object-fit: cover;
+  border: 4px solid rgb(154, 203, 208); /* Use theme color */
+}
+
+.contact-details {
+  text-align: left;
+  max-width: 400px; /* Max width for details */
+}
+
+.contact-details h3 {
+  font-size: 1.8rem; /* Adjusted size */
+  color: #333;
+  margin-bottom: 1.5rem; /* Increased margin */
+}
+
+.contact-details p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 0.8rem; /* Space between contact lines */
+}
+
+.contact-details a {
+  color: #008cba; /* Link color */
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contact-details a:hover {
+  text-decoration: underline;
+  color: #005f7a; /* Darker hover */
+}
+/* =================== END CONTACT US SECTION STYLES =================== */
+
+
+/* ===================== FOOTER STYLES ===================== */
+footer {
+  background: rgb(154, 203, 208);
+  color: #000000;
+  text-align: center;
+  padding: 1.5rem 0; /* Increased padding */
+  margin-top: 3rem; /* Increased margin */
+}
+/* =================== END FOOTER STYLES =================== */
+
+
+/* ===================== MOBILE & RESPONSIVE STYLES ===================== */
+
+/* Mobile Burger Menu Icon */
+.burger-menu {
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px; /* Make it easier to tap */
+  z-index: 1001; /* Ensure it's above other header content */
+}
+
+.burger-menu .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #000000; /* Make bars black to contrast header */
+  border-radius: 5px;
+  transition: all 0.3s ease; /* Smooth transition for animation */
+}
+
+/* Styles for burger menu when active (Optional JS-driven animation) */
+.burger-menu.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.burger-menu.active .bar:nth-child(2) {
+  opacity: 0;
+}
+.burger-menu.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+
+@media screen and (max-width: 768px) {
+  /* Adjust header padding */
+  header {
+    padding: 0.8rem 1rem;
+  }
+
+  /* Hide the desktop nav links */
+  .nav-links {
+    display: none; /* Hide by default */
+    flex-direction: column;
+    gap: 0; /* Remove gap for vertical list */
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    top: 65px; /* Adjust based on header height */
+    left: 0;
+    background-color: rgba(228, 239, 231, 0.98); /* Use semi-transparent background */
+    padding: 1rem 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 1000; /* Ensure menu is above content */
+    border-bottom: 1px solid #ccc;
+  }
+
+  .nav-links li {
+      width: 100%; /* Make list items full width */
+  }
+
+  .nav-links li a {
+      display: block; /* Make links block level */
+      padding: 1rem 0; /* Add vertical padding */
+      text-align: center;
+      width: 100%;
+      font-size: 1.3rem; /* Larger text for mobile */
+      color: #333; /* Darker text for readability */
+  }
+
+  .nav-links li a:hover {
+      background-color: rgb(154, 203, 208); /* Use header color for hover */
+      color: #000;
+  }
+
+   /* Remove hover underline effect on mobile */
+  .nav-links li a::after {
+      display: none;
+  }
+
+  /* Show the burger menu icon */
+  .burger-menu {
+    display: flex;
+  }
+
+  /* Show nav links when burger is clicked and .active class is added */
+  .nav-links.active {
+    display: flex;
+  }
+
+  /* --- Responsive adjustments for About Section --- */
+  .about-container {
+    flex-direction: column; /* Stack columns vertically */
+    align-items: center; /* Center items when stacked */
+    gap: 2rem; /* Adjust gap for vertical layout */
+  }
+
+  .about-left {
+    flex-basis: auto; /* Reset fixed width */
+    width: 100%; /* Allow it to take full width */
+    max-width: 300px; /* Optional: constrain width on mobile */
+  }
+
+  .about-right {
+    text-align: center; /* Center text on mobile */
+  }
+
+  .about-right h2 {
+     font-size: 2rem; /* Slightly smaller heading on mobile */
+  }
+
+  .about-right p {
+     font-size: 1rem; /* Slightly smaller text on mobile */
+  }
+   /* --- End About Section adjustments --- */
+
+
+  /* --- Responsive adjustments for Hero Section --- */
+  .hero {
+      height: 70vh; /* Shorter hero on mobile */
+  }
+  .hero-content h1 {
+      font-size: 2rem; /* Smaller heading */
+  }
+  .hero-content p {
+      font-size: 1.1rem; /* Smaller text */
+  }
+  /* --- End Hero Section adjustments --- */
+
+
+  /* --- Responsive adjustments for Gallery Section --- */
+  .gallery-container {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust minmax for smaller items */
+  }
+  /* --- End Gallery Section adjustments --- */
+
+
+  /* --- Responsive adjustments for Contact Section --- */
+  .contact-info {
+      gap: 2rem; /* Reduce gap */
+  }
+  .contact-photo img {
+      width: 150px; /* Smaller photo */
+      height: 150px;
+  }
+  .contact-details {
+      text-align: center; /* Center details text */
+  }
+  /* --- End Contact Section adjustments --- */
+}
+
+
+@media screen and (max-width: 480px) {
+    /* Further adjustments for very small screens */
+    .logo span {
+        font-size: 1.2rem; /* Smaller logo text */
+    }
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+    .gallery-container {
+        grid-template-columns: 1fr; /* Single column gallery */
+        gap: 1rem;
+    }
+     .about-right h2, .gallery h2, .contact-us h2 {
+        font-size: 1.8rem; /* Smaller section headings */
+    }
+}
+/* =================== END MOBILE & RESPONSIVE STYLES =================== */
